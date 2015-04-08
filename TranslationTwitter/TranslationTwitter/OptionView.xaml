@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TranslationTwitter;assembly=TranslationTwitter"
+             x:Class="TranslationTwitter.OptionView"
+            HeightRequest="0">
+  <ContentView.Resources>
+    <ResourceDictionary>
+      <Style TargetType="Entry">
+        <Style.Triggers>
+          <Trigger  TargetType="Entry" Property="IsFocused" Value="True"> 
+            <Setter Property="BackgroundColor" Value="Aqua" /> 
+          </Trigger>
+        </Style.Triggers>
+      </Style>
+      
+      <Style TargetType="Button">
+                <Setter Property="BorderColor" Value="White"/>
+                <Setter Property="BorderWidth" Value="1"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BorderRadius" Value="5"/>
+      </Style>
+  
+    </ResourceDictionary>
+  </ContentView.Resources>
+  
+<StackLayout Padding="20">
+  <StackLayout Orientation="Horizontal">
+    <Label>セパレータ</Label>    
+    <Switch x:Name="SwitchsListViewSparator"></Switch>
+  </StackLayout>
+
+  <StackLayout Orientation="Horizontal">
+    <Label>最大データ数</Label>    
+    <Entry Placeholder="15" x:Name="EntryListViewMax" WidthRequest="80">
+      <Entry.Triggers> 
+        <EventTrigger Event="TextChanged">
+            <local:EntryValidation />
+        </EventTrigger>
+      </Entry.Triggers>
+    </Entry>
+  </StackLayout>
+
+<StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="20">
+  <Button Text="OK" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Clicked="OnOk">
+    <Button.Triggers>
+      <DataTrigger TargetType="Button" Binding="{Binding Source={x:Reference EntryListViewMax},Path=TextColor.R}" Value="1" > 
+        <Setter Property="IsEnabled" Value="False" /> 
+      </DataTrigger>
+    </Button.Triggers>
+  </Button>
+  <Button Text="キャンセル" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Clicked="OnCancel" />
+  </StackLayout>
+
+</StackLayout>	
+
+</ContentView>
