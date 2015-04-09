@@ -28,7 +28,7 @@ namespace TranslationTwitter
 
         //このオプションビューの表示
         public void Open() {
-            HeightRequest = 150;
+            HeightRequest = Device.OnPlatform(150,250,400);
             this.ScaleTo(1, 550, Easing.Linear); //アニメーション
 
             //オプション内容でコントロールを初期化

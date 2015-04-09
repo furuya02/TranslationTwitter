@@ -10,6 +10,8 @@ namespace TranslationTwitter
 {
     class Twitter
     {
+
+
         const string ApiKey = "{ApiKey}";
         const string ApiSecret = "{ApiSecret}";
         const string AccessToke = "{AccessToke}";

@@ -13,6 +13,7 @@ namespace TranslationTwitter
 {
     class Translator
     {
+
         private const string ClientId = "{ClientId}";
         private const string ClientSecret = "{ClientSecret}";
 

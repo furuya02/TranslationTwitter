@@ -61,6 +61,7 @@ namespace TranslationTwitter
             //オプションビュー
             var optionView = new OptionView(_option);
 
+
             //検索ビュー
             var searchView = new SearchView();
             searchView.OnEnter += str => {
@@ -139,9 +140,8 @@ namespace TranslationTwitter
         public void Save() {
             var p = Application.Current.Properties;
             
-            //いったん全ての保存データを削除する
             try {
-                p.Clear();
+                p.Clear();//いったん全ての保存データを削除する
             }catch (Exception) {
                 ;
             }
